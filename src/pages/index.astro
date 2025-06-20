@@ -1,7 +1,38 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+
+import GithubLogo from "@/assets/svg/github.astro";
 ---
 
 <Layout>
-	Kaixo
+  <section class="flex flex-col h-screen pl-16 py-8 w-full md:w-1/2">
+    <div class="h-4/10 text-red-500 flex flex-col justify-end mb-10">
+      <h2 class="animate-slide-in text-7xl">Ibai Zorrilla Junguitu</h2>
+      <span class="text-2xl">Computer Engineering</span>
+    </div>
+    <div class="h-5/10">
+      <h1 class="text-9xl">Launching soon!</h1>
+      <div class="flex flex-col gap-4">
+        <div class="flex items-center">
+          <span class="text-2xl">Get Social</span>
+          <div class="flex-grow border-b border-gray-600 mx-4 max-w-16"></div>
+          <a class="rounded-full" href="https://github.com/IbaiZJ/">
+            <GithubLogo class="text-yellow-500 h-6 w-6 hover:scale-110 transition-transform ease-in-out duration-200" />
+          </a>
+        </div>
+        <div class="flex items-center">
+          <span class="text-2xl">CVE</span>
+          <div class="flex-grow border-b border-gray-600 mx-4 max-w-16"></div>
+          <div class="flex gap-4 flex-wrap">
+            <a href="#" class="hover:text-yellow-400 transition-colors ease-in-out duration-200">English</a>
+            <a href="#" class="hover:text-yellow-400 transition-colors ease-in-out duration-200">Basque</a>
+            <a href="#" class="hover:text-yellow-400 transition-colors ease-in-out duration-200">Spanish</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="hidden md:flex flex-col h-screen w-1/2 p-8">
+  </section>
 </Layout>
+

@@ -1,1 +1,41 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Telegraf";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/TelegrafRegular_272984568a25d8528fe2de8b20b29011.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Telegraf";
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Telegraf UltraLight 200.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Telegraf";
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Telegraf UltraBold 800.woff") format("woff");
+}
+
+/* Name slide in */
+@keyframes slideIn {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.8s ease-out forwards;
+}
