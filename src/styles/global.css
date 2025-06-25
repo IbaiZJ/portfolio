@@ -1,1 +1,45 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #b9c7d4;
+}
+
+@font-face {
+  font-family: "Telegraf";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/TelegrafRegular_272984568a25d8528fe2de8b20b29011.woff")
+    format("woff");
+}
+
+@font-face {
+  font-family: "Telegraf";
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Telegraf UltraLight 200.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Telegraf";
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Telegraf UltraBold 800.woff") format("woff");
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.8s ease-out forwards;
+}
