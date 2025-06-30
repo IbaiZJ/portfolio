@@ -1,0 +1,26 @@
+---
+import GithubLogo from "@/assets/github.svg";
+---
+
+<dialog
+  id="social-dialog"
+  onclick="toggleDialog('')"
+  closedby="any"
+  class="w-full h-full max-w-92 max-h-72 m-6 sm:m-0 bg-white rounded-2xl p-6 text-center fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+>
+  <div class="flex flex-col gap-4 items-center justify-between h-full">
+    <h2 class="text-2xl font-semibold">Social</h2>
+    <a href="https://github.com/IbaiZJ" class="cursor-pointer" target="_blank">
+      <div class="flex flex-col justify-center items-center rounded-2xl hover:bg-gray-200 p-4 transition-colors ease-in-out duration-200">
+        <GithubLogo class={"w-16 h-16"} />
+        <span>Github</span>
+      </div>
+    </a>
+    <form method="dialog">
+      <button
+        class="px-4 py-2 bg-gray-200 rounded-xl cursor-pointer hover:bg-red-500 transition-colors ease-in-out duration-200"
+        >Close</button
+      >
+    </form>
+  </div>
+</dialog>

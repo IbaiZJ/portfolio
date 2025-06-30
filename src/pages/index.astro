@@ -1,19 +1,73 @@
 ---
-import Hero from "@/components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
+
+import SocialDialog from "@/components/SocialDialog.astro";
+import CVDialog from "@/components/CVDialog.astro";
+import Projects from "@/components/Projects.astro";
 ---
 
-<Layout>
-  <main class="flex justify-center m-6 w-full">
-    <div class="max-w-7xl flex flex-col justify-center w-full">
-      <div class="flex flex-col items-center justify-center w-full h-96 mt-12">
-        <div></div>
-        <h1 class="text-5xl sm:text-7xl md:text-8xl xl:text-9xl font-semibold text-center animate-slide-in">
-          Ibai Zorrilla
-        </h1>
+<Layout title="Ibai Zorrilla">
+  <!-- <header
+    id="header"
+    class="flex gap-24 fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 bg-dark px-6 py-3 rounded-2xl text-gray-300 opacity-0 scale-200"
+  >
+    <button>About</button>
+    <button>Projects</button>
+  </header> -->
+  <SocialDialog />
+  <CVDialog />
+  <main class="flex flex-col justify-center m-6 w-full">
+    <div id="hero-container" class="flex flex-col items-center justify-center w-full h-screen scale-125">
+      <div class="flex gap-4 px-6 py-3 bg-dark rounded-2xl mb-8 text-gray-300">
+        <button onclick="toggleDialog('social-dialog')" class="cursor-pointer">Social</button>
+        <button onclick="toggleDialog('cv-dialog')" class="cursor-pointer">CV</button>
       </div>
+      <h1 class="text-4xl sm:text-5xl md:text-7xl xl:text-8xl font-semibold text-center animate-slide-in">
+        Ibai Zorrilla
+      </h1>
+      <span class="text-gray-700 mt-8">Estudiante de Ingeniería en Informática</span>
+      <div class="flex justify-center mb-10">
+        <p class="w-1/2 text-center">
+          Estudiante de Ingeniería Informática interesado en seguir desarrollando mis conocimientos técnicos. Me
+          considero una persona proactiva y con ganas de aprender y crecer profesionalmente.
+        </p>
+      </div>
+    </div>
 
-      <div class="h-80"></div>
+    <div id="projects-container" class="flex flex-col items-center justify-center w-full">
+      <Projects />
     </div>
   </main>
 </Layout>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const timeline = gsap.timeline({
+    ease: "power2.out",
+    scrollTrigger: {
+      scrub: 1,
+    },
+  });
+  timeline
+    .to("#hero-container", { scale: 0.2, duration: 0.3 })
+    .to("#header", { opacity: 1, scale: 1, duration: 0.3 }, "<");
+</script>
+
+<script is:inline>
+  function toggleDialog(dialogId) {
+    if (!dialogId) {
+      const openDialog = document.querySelector("dialog[open]");
+      if (openDialog) {
+        openDialog.close();
+      }
+      return false;
+    }
+
+    const dialog = document.getElementById(dialogId);
+    dialog.showModal();
+  }
+</script>
