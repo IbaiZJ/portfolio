@@ -1,7 +1,7 @@
 ---
 import "@/styles/global.css";
 import { ClientRouter } from "astro:transitions";
-import { USE_VIEW_TRANSITIONS } from "astro:env/server";
+// import { USE_VIEW_TRANSITIONS } from "astro:env/server";
 
 export interface Props {
   title: string;
@@ -16,7 +16,8 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    {USE_VIEW_TRANSITIONS && <ClientRouter fallback="swap" />}
+    <!-- {USE_VIEW_TRANSITIONS && <ClientRouter fallback="swap" />} -->
+     <ClientRouter fallback="swap" />
     <title>{title}</title>
 
     <!-- <script>
