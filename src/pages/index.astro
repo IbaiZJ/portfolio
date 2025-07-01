@@ -4,12 +4,13 @@ import Layout from "../layouts/Layout.astro";
 import SocialDialog from "@/components/SocialDialog.astro";
 import CVDialog from "@/components/CVDialog.astro";
 import Projects from "@/components/Projects.astro";
+import ScrollToTop from "@/components/ScrollToTop.astro";
 ---
 
 <Layout title="Ibai Zorrilla">
   <!-- <header
     id="header"
-    class="flex gap-24 fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 bg-dark px-6 py-3 rounded-2xl text-gray-300 opacity-0 scale-200"
+    class="flex gap-24 fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-dark px-6 py-3 rounded-2xl text-gray-300 opacity-0 scale-200"
   >
     <button>About</button>
     <button>Projects</button>
@@ -44,17 +45,19 @@ import Projects from "@/components/Projects.astro";
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  gsap.registerPlugin(ScrollTrigger);
+  document.addEventListener("astro:page-load", () => {
+    gsap.registerPlugin(ScrollTrigger);
 
-  const timeline = gsap.timeline({
-    ease: "power2.out",
-    scrollTrigger: {
-      scrub: 1,
-    },
+    const timeline = gsap.timeline({
+      ease: "power2.out",
+      scrollTrigger: {
+        scrub: 1,
+      },
+    });
+    timeline
+      .to("#hero-container", { scale: 0.2, duration: 0.3 })
+      .to("#header", { opacity: 1, scale: 1, duration: 0.3 }, "<");
   });
-  timeline
-    .to("#hero-container", { scale: 0.2, duration: 0.3 })
-    .to("#header", { opacity: 1, scale: 1, duration: 0.3 }, "<");
 </script>
 
 <script is:inline>

@@ -13,11 +13,13 @@
 </div>
 
 <script is:inline>
-  const btn = document.querySelector(".up-button");
+  document.addEventListener("astro:page-load", () => {
+    const btn = document.querySelector(".up-button");
 
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
-  btn.addEventListener("click", scrollToTop);
+    btn.addEventListener("click", scrollToTop);
+  });
 </script>
